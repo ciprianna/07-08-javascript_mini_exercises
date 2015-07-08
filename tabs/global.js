@@ -18,28 +18,44 @@ function init(){
       contentDivs[id] = document.getElementById(id);
     }
   }
-  
+
   // Starting with an index of 0, loop through tabLinks, adding
   // showTab function to each tab.
   var i = 0;
-  
+
   for (var id in tabLinks){
     tabLinks[id].onclick = showTab;
     if (i === 0) tabLinks[id].className = "selected";
     i++;
   }
-  
-  // Starting with an index of 0, loop through contentDivs, adding 
+
+  // Starting with an index of 0, loop through contentDivs, adding
   // hide Class when tab is not selected.
   var i = 0;
-  
+
   for (var id in contentDivs){
     if (i !== 0) contentDivs[id].className = "tabContent hide";
     i++;
   }
 }
 
+// Shows currently selected tab information, and hides all others
+//
+function showTab(){
+  var selectedID = getLink(this.getAttribute('href'));
+  for (var id in contentDivs) {
+    if (id === selectedID) {
+      tabLinks[id].className = 'selected';
+      contentDivs[id].className = "tabContent";
+    } else {
+      tabLinks[id].className = "";
+      contentDivs[id].className = "tabContent hide";
+    }
+  }
 
+  // Prevents browser from following the link
+  return false;
+}
 
 
 
