@@ -5,3 +5,29 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+body{
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  font-size: 14pt;
+}
+
+ul #tabs{
+  list-style-type: none;
+  margin: 30px 0 0 0;
+}
+
+ul #tabs li{
+  display: inline;
+}
+
+a {
+  cursor: pointer;
+}
+
+div .tabContent{
+  border: 1px solid black;
+}
+
+div .tabContent.hide {
+  display: none;
+}
