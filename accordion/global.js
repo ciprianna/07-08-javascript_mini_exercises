@@ -1,4 +1,4 @@
-var accordian_tabs = new Array();
+var accordion_tabs = new Array();
 var contentDivs = new Array();
 
 // Function sets up tabs
@@ -14,23 +14,19 @@ function init(){
     if (listTabs[i].nodeName == "LI"){
       var tabLink = getFirstChildWithTagName(listTabs[i], "A");
       var id = getLink(tabLink.getAttribute("href"));
-      accordian_tabs[id] = tabLink;
+      accordion_tabs[id] = tabLink;
       contentDivs[id] = document.getElementById(id);
     }
   }
 
   // Starting with an index of 0, loop through tabLinks, adding
   // showTab function to each tab.
-  // for (var i = 0; i < tabLinks.length; i++){
-//     tabLinks[id].onclick = showTab;
-//     if (i === 0) tabLinks[id].className = "selected";
-//   }
   var i = 0;
 
-  for ( var id in accordian_tabs ) {
-    accordian_tabs[id].onclick = showTab;
-    accordian_tabs[id].onfocus = function() { this.blur() };
-    if ( i == 0 ) accordian_tabs[id].className = 'selected';
+  for ( var id in accordion_tabs ) {
+    accordion_tabs[id].onclick = showTab;
+    accordion_tabs[id].onfocus = function() { this.blur() };
+    // if ( i == 0 ) accordion_tabs[id].className = 'selected';
     i++;
   }
 
@@ -50,10 +46,10 @@ function showTab(){
   var selectedID = getLink(this.getAttribute('href'));
   for ( var id in contentDivs ) {
     if (id === selectedID) {
-      accordian_tabs[id].className = 'selected';
+      accordion_tabs[id].className = 'selected';
       contentDivs[id].className = "tab_content";
     } else {
-      accordian_tabs[id].className = "";
+      accordion_tabs[id].className = "";
       contentDivs[id].className = "tab_content hide";
     }
   }
