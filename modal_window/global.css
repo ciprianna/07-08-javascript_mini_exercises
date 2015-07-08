@@ -16,3 +16,15 @@
   background-color: white;
   border: solid 1px black;
 }
+
+#overlay div p{
+  font-size: 16pt;
+  margin-right: 20px;
+  margin-top: 10px;
+  float: right;
+}
+
+#overlay div p a{
+  text-decoration: none;
+  color: rgb(84, 84, 84);
+}
