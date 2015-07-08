@@ -21,15 +21,15 @@ function init(){
 
   // Starting with an index of 0, loop through tabLinks, adding
   // showTab function to each tab.
-  for (var i = 0; var id in tabLinks; i++){
+  for (var i = 0; i < tabLinks.length; i++){
     tabLinks[id].onclick = showTab;
     if (i === 0) tabLinks[id].className = "selected";
   }
 
   // Starting with an index of 0, loop through contentDivs, adding
   // hide Class when tab is not selected.
-  for (var i = 0; var id in contentDivs; i++){
-    if (i != 0) contentDivs[id].className = "tabContent hide";
+  for (var i = 0; i < contentDivs.length; i++){
+    if (i !== 0) contentDivs[id].className = "tab_content hide";
   }
 }
 
@@ -40,12 +40,13 @@ function showTab(){
   for (var id = 0; id < contentDivs.length; id++) {
     if (id === selectedID) {
       tabLinks[id].className = 'selected';
-      contentDivs[id].className = "tabContent";
+      contentDivs[id].className = "tab_content";
     } else {
       tabLinks[id].className = "";
-      contentDivs[id].className = "tabContent hide";
+      contentDivs[id].className = "tab_content hide";
     }
   }
+  console.log(id)
   // Prevents browser from following the link
   return false;
 }
