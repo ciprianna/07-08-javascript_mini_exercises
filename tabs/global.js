@@ -21,21 +21,15 @@ function init(){
 
   // Starting with an index of 0, loop through tabLinks, adding
   // showTab function to each tab.
-  var i = 0;
-
-  for (var id in tabLinks){
+  for (var i = 0; var id in tabLinks; i++){
     tabLinks[id].onclick = showTab;
     if (i === 0) tabLinks[id].className = "selected";
-    i++;
   }
 
   // Starting with an index of 0, loop through contentDivs, adding
   // hide Class when tab is not selected.
-  var i = 0;
-
-  for (var id in contentDivs){
-    if (i !== 0) contentDivs[id].className = "tabContent hide";
-    i++;
+  for (var i = 0; var id in contentDivs; i++){
+    if (i != 0) contentDivs[id].className = "tabContent hide";
   }
 }
 
@@ -43,7 +37,7 @@ function init(){
 //
 function showTab(){
   var selectedID = getLink(this.getAttribute('href'));
-  for (var id in contentDivs) {
+  for (var id = 0; id < contentDivs.length; id++) {
     if (id === selectedID) {
       tabLinks[id].className = 'selected';
       contentDivs[id].className = "tabContent";
@@ -52,7 +46,6 @@ function showTab(){
       contentDivs[id].className = "tabContent hide";
     }
   }
-
   // Prevents browser from following the link
   return false;
 }
@@ -62,21 +55,15 @@ function showTab(){
 // Utility function used in init() method
 function getFirstChildWithTagName(element, tagName) {
   for (var i = 0; i < element.childNodes.length; i++) {
-    if (element.childNodes[i].nodeName === tagName)
-    return element.childNodes[i];
+    if (element.childNodes[i].nodeName === tagName) return element.childNodes[i];
   }
 }
 
 
-
-var aboutTab = document.getElementById("about")
-
-aboutTab.addEventListener("click", showTab)
-
-var contactTab = document.getElementById("contact_us")
-
-contactTab.addEventListener("click", showTab)
-
-var locationTab = document.getElementById("location")
-
-locationTab.addEventListener("click", showTab)
+// Return the value of the URL portion after the second #
+//
+// Utility function used in init() and showTab() methods.
+function getLink(url){
+  var linkPos = url.lastIndexOf ('#');
+  return url.substring(linkPos + 1);
+}
