@@ -11,7 +11,7 @@ var contentDivs = new Array();
 function init(){
   var listTabs = document.getElementById("tabs").childNodes;
   for (var i = 0; i < listTabs.length; i++){
-    if (listTabs[i].nodeName === "LI"){
+    if (listTabs[i].nodeName == "LI"){
       var tabLink = getFirstChildWithTagName(listTabs[i], "A");
       var id = getLink(tabLink.getAttribute("href"));
       tabLinks[id] = tabLink;
@@ -21,15 +21,30 @@ function init(){
 
   // Starting with an index of 0, loop through tabLinks, adding
   // showTab function to each tab.
-  for (var i = 0; i < tabLinks.length; i++){
+  // for (var i = 0; i < tabLinks.length; i++){
+//     tabLinks[id].onclick = showTab;
+//     if (i === 0) tabLinks[id].className = "selected";
+//   }
+  var i = 0;
+
+  for ( var id in tabLinks ) {
     tabLinks[id].onclick = showTab;
-    if (i === 0) tabLinks[id].className = "selected";
+    tabLinks[id].onfocus = function() { this.blur() };
+    if ( i == 0 ) tabLinks[id].className = 'selected';
+    i++;
   }
 
   // Starting with an index of 0, loop through contentDivs, adding
   // hide Class when tab is not selected.
-  for (var i = 0; i < contentDivs.length; i++){
-    if (i !== 0) contentDivs[id].className = "tab_content hide";
+ //  for (var i = 0; i < contentDivs.length; i++){
+//     if (i !== 0) contentDivs[id].className = "tab_content hide";
+//   }
+// }
+  var i = 0;
+
+  for ( var id in contentDivs ) {
+    if ( i != 0 ) contentDivs[id].className = 'tab_content hide';
+    i++;
   }
 }
 
@@ -37,7 +52,8 @@ function init(){
 //
 function showTab(){
   var selectedID = getLink(this.getAttribute('href'));
-  for (var id = 0; id < contentDivs.length; id++) {
+  // for (var id = 0; id < contentDivs.length; id++) {
+  for ( var id in contentDivs ) {
     if (id === selectedID) {
       tabLinks[id].className = 'selected';
       contentDivs[id].className = "tab_content";
@@ -46,7 +62,7 @@ function showTab(){
       contentDivs[id].className = "tab_content hide";
     }
   }
-  console.log(id)
+  
   // Prevents browser from following the link
   return false;
 }
@@ -56,7 +72,7 @@ function showTab(){
 // Utility function used in init() method
 function getFirstChildWithTagName(element, tagName) {
   for (var i = 0; i < element.childNodes.length; i++) {
-    if (element.childNodes[i].nodeName === tagName) return element.childNodes[i];
+    if (element.childNodes[i].nodeName == tagName) return element.childNodes[i];
   }
 }
 
