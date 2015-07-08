@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+}
+
+header{
+  width: 100%;
+  border-bottom: solid 1px black;
+  background-color: rgb(125, 89, 159);
+  padding: 5px;
+  position: fixed;
+}
+
+#head{
+  font-size: 30px;
+  padding: 5px;
+}
+
+.container{
+  padding-top: 100px;
+}
+
+p{
+  margin: 5px;
+}
