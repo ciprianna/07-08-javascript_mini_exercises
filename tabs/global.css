@@ -11,23 +11,35 @@ body{
   font-size: 14pt;
 }
 
-ul #tabs{
+#tabs{
   list-style-type: none;
   margin: 30px 0 0 0;
 }
 
-ul #tabs li{
+#tabs li{
   display: inline;
+  border: solid 1px;
+  border-bottom: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: chartreuse;
 }
 
 a {
   cursor: pointer;
 }
 
-div .tabContent{
-  border: 1px solid black;
+a.selected {
+  background-color: purple;
+  color: white;
+  font-weight: bold;
 }
 
-div .tabContent.hide {
+div.tab_content{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+div.tab_content.hide {
   display: none;
 }
