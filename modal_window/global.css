@@ -1,0 +1,18 @@
+#overlay {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  background-color: rgba(84,84,84,0.5);
+}
+
+#overlay div {
+  width: 500px;
+  height: 400px;
+  margin: 100px auto;
+  background-color: white;
+  border: solid 1px black;
+}
