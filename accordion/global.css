@@ -34,11 +34,10 @@ a.selected {
   font-weight: bold;
 }
 
-div.tab_content{
-  border: 1px solid black;
+p.tab_content {
   padding: 10px;
 }
 
-div.tab_content.hide {
+p.tab_content.hide {
   display: none;
 }

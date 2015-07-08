@@ -1,4 +1,4 @@
-var tabLinks = new Array();
+var accordion_tabs = new Array();
 var contentDivs = new Array();
 
 // Function sets up tabs
@@ -14,32 +14,24 @@ function init(){
     if (listTabs[i].nodeName == "LI"){
       var tabLink = getFirstChildWithTagName(listTabs[i], "A");
       var id = getLink(tabLink.getAttribute("href"));
-      tabLinks[id] = tabLink;
+      accordion_tabs[id] = tabLink;
       contentDivs[id] = document.getElementById(id);
     }
   }
 
   // Starting with an index of 0, loop through tabLinks, adding
   // showTab function to each tab.
-  // for (var i = 0; i < tabLinks.length; i++){
-//     tabLinks[id].onclick = showTab;
-//     if (i === 0) tabLinks[id].className = "selected";
-//   }
   var i = 0;
 
-  for ( var id in tabLinks ) {
-    tabLinks[id].onclick = showTab;
-    tabLinks[id].onfocus = function() { this.blur() };
-    if ( i == 0 ) tabLinks[id].className = 'selected';
+  for ( var id in accordion_tabs ) {
+    accordion_tabs[id].onclick = showTab;
+    accordion_tabs[id].onfocus = function() { this.blur() };
+    // if ( i == 0 ) accordion_tabs[id].className = 'selected';
     i++;
   }
 
   // Starting with an index of 0, loop through contentDivs, adding
   // hide Class when tab is not selected.
- //  for (var i = 0; i < contentDivs.length; i++){
-//     if (i !== 0) contentDivs[id].className = "tab_content hide";
-//   }
-// }
   var i = 0;
 
   for ( var id in contentDivs ) {
@@ -52,17 +44,16 @@ function init(){
 //
 function showTab(){
   var selectedID = getLink(this.getAttribute('href'));
-  // for (var id = 0; id < contentDivs.length; id++) {
   for ( var id in contentDivs ) {
     if (id === selectedID) {
-      tabLinks[id].className = 'selected';
+      accordion_tabs[id].className = 'selected';
       contentDivs[id].className = "tab_content";
     } else {
-      tabLinks[id].className = "";
+      accordion_tabs[id].className = "";
       contentDivs[id].className = "tab_content hide";
     }
   }
-  
+
   // Prevents browser from following the link
   return false;
 }
