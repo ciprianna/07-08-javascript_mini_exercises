@@ -57,6 +57,16 @@ function showTab(){
   return false;
 }
 
+// Returns the first child of an element that matches a given id
+//
+// Utility function used in init() method
+function getFirstChildWithTagName(element, tagName) {
+  for (var i = 0; i < element.childNodes.length; i++) {
+    if (element.childNodes[i].nodeName === tagName)
+    return element.childNodes[i];
+  }
+}
+
 
 
 var aboutTab = document.getElementById("about")
