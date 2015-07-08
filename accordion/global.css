@@ -1,0 +1,44 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  font-size: 14pt;
+}
+
+#tabs{
+  width: 100%;
+  padding: 0;
+  list-style-type: none;
+}
+
+#tabs li{
+  border: solid 1px;
+  padding: 10px;
+  background-color: chartreuse;
+}
+
+a {
+  cursor: pointer;
+}
+
+a.selected {
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+}
+
+div.tab_content{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+div.tab_content.hide {
+  display: none;
+}
