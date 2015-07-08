@@ -6,10 +6,10 @@
   </head>
   <body>
     <p>Please enter your phone number:</p>
-    <form>
-      <input type="text" id="area _code">
-      <input type="text" id="first_three">
-      <input type="text" id="last_four">
+    <form name="phone">
+      <input type="text" name="area _code" size=3 onKeyup="autoTab(this, document.phone.first_three)" maxlength=3>
+      <input type="text" name="first_three" size=3 onKeyup="autoTab(this, document.phone.last_four)" maxlength=3>
+      <input type="text" name="last_four" size=4 maxlength=4 >
     </form>
   </body>
 </html>
